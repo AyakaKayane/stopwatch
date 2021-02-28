@@ -31,10 +31,10 @@
         m = ('0' + m).slice(-1); 
         ss = ('0' + ss).slice(-1);
         s = ('0' + s).slice(-1);
-        ms = ('0' + ms).slice(-1);
+        ms = ('0' + ms).slice(1,2);
 
        　
-        timer.textContent = m + ':' + ss + ':' + s + ':' + ms;
+        timer.textContent = m + ':' + ss  + s + ':' + ms;
     }
 
 
@@ -78,5 +78,13 @@
         updateTimetText();
 
     });
+
+    
+    document.getElementById("start").onclick = function() {
+  // ここに#buttonをクリックしたら発生させる処理を記述する
+      this.classList.toggle("pink");
+  
+};
+
 })();
 }
