@@ -5,7 +5,7 @@
     var start = document.getElementById('start');
     var stop = document.getElementById('stop');
     var reset = document.getElementById('reset');
-
+    var num= 1
   
     var startTime;
     
@@ -55,17 +55,32 @@
     
     start.addEventListener('click',function(){
       
+        if(num==1){
+            
         startTime = Date.now();
        
         countUp();
+        
+        start.classList.add('pink')
+        
+        num = num+1
+        
+        
+        }
+        
     });
-
+    
   
     stop.addEventListener('click',function(){
       
        clearTimeout(timerId);
       
        timeToadd += Date.now() - startTime;
+       
+       num = 1;
+       
+       start.classList.remove('pink')
+       
     });
 
    
@@ -76,15 +91,16 @@
         timeToadd = 0;
        
         updateTimetText();
+        
+        num = 1;
 
     });
 
     
-    document.getElementById("start").onclick = function() {
+    // document.getElementById("start").onclick = function() {
   // ここに#buttonをクリックしたら発生させる処理を記述する
-      this.classList.toggle("pink");
   
-};
+
 
 })();
 }
